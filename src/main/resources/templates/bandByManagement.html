@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html
+    xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Management, Band and Festival Detail page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <style>
+			.tab-1 {
+				text-indent: 50px;				
+			}
+			.tab-2 {
+				text-indent: 100px;				
+			}			
+		</style>
+    </head>
+    <body>
+    	<div th:each="bandAndFestivalObject : ${bandAndFestivalMap}">
+    		<div th:text="${bandAndFestivalObject.key}">managementName</div>
+    		<div th:each="bandAndFestival : ${bandAndFestivalObject.value}">
+    			<div th:text="${bandAndFestival.bandName}" class="tab-1">bandName</div>
+    			<div th:each="festivalName : ${bandAndFestival.festivalNameList}">
+    				<div th:text="${festivalName}" class="tab-2">festivalName</div>
+    			</div>
+    		</div> 
+    		<br>   		
+    	</div>       
+    </body>
+</html>
